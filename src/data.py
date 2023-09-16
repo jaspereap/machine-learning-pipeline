@@ -9,10 +9,10 @@ def load_config(config_path):
         config = yaml.safe_load(stream)
     return config
 
+# Load data from the database and preprocess as needed
 def load_data_set(db_name, config):
     db_path = config['data'][db_name]
     data = []
-    # Load data from the database and preprocess as needed
 
     # Define a function that returns database connection object
     def get_db_connection(db_path):
@@ -40,8 +40,3 @@ def load_data_set(db_name, config):
     data = pd.DataFrame(data=data).set_index('index')
 
     return data
-
-# def load_post_trip_data(config):
-#     post_trip_db_path = config['data']['post_trip_db_path']
-#     # Load data from the database and preprocess as needed
-#     return post_trip_data

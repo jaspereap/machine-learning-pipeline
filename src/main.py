@@ -18,9 +18,9 @@ def main():
 
     cruise_pre_data = data.load_data_set('cruise_pre.db', config)
     cruise_post_data = data.load_data_set('cruise_post.db', config)
-
     
-    # models_to_train = config['models']
+    models_to_train = config['models']
+    
     # hyperparameters = config['hyperparameters']
     
     # for model_name in models_to_train:
