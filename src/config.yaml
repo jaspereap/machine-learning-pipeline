@@ -1,11 +1,11 @@
 data:
-  pre_purchase_db_path: ../data/cruise_pre.db
-  post_trip_db_path: ../data/cruise_post.db
+  cruise_pre.db: ../data/cruise_pre.db
+  cruise_post.db: ../data/cruise_post.db
 
 features:
-  - WiFi
-  - Dining
-  - Entertainment
+  - Age
+  - Online Check-in
+  - Onboard Wifi Service
 
 models:
   - RandomForestClassifier

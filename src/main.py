@@ -10,26 +10,25 @@
 
 import data
 # import feature_engineering
-import model
-import evaluate
+# import model
+# import evaluate
 
 def main():
-    config = data.load_config('config.yaml')
-    pre_purchase_data = data.load_pre_purchase_data(config)
-    post_trip_data = data.load_post_trip_data(config)
+    config = data.load_config('src/config.yaml')
+
+    cruise_pre_data = data.load_data_set('cruise_pre.db', config)
+    cruise_post_data = data.load_data_set('cruise_post.db', config)
+
     
-    features_to_engineer = config['features']
-    engineered_features = feature_engineering.engineer_features(pre_purchase_data, features_to_engineer)
+    # models_to_train = config['models']
+    # hyperparameters = config['hyperparameters']
     
-    models_to_train = config['models']
-    hyperparameters = config['hyperparameters']
-    
-    for model_name in models_to_train:
-        hyperparams = hyperparameters[model_name]
-        train_func = getattr(model, f'train_{model_name}')
-        trained_model = train_func(engineered_features, y, **hyperparams)
-        accuracy = evaluate.evaluate_model(trained_model, X_test, y_test)
-        print(f'{model_name} - Accuracy: {accuracy}')
+    # for model_name in models_to_train:
+    #     hyperparams = hyperparameters[model_name]
+    #     train_func = getattr(model, f'train_{model_name}')
+    #     trained_model = train_func(engineered_features, y, **hyperparams)
+    #     accuracy = evaluate.evaluate_model(trained_model, X_test, y_test)
+    #     print(f'{model_name} - Accuracy: {accuracy}')
 
 if __name__ == '__main__':
     main()
