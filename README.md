@@ -6,17 +6,29 @@
 
 ### Overview of submitted folder
 project/
+
 |-- data/
+
 |   |-- cruise_pre.db
+
 |   |-- cruise_post.db
+
 |-- src/
+
 |   |-- data.py
+
 |   |-- model.py
+
 |   |-- evaluate.py
+
 |   |-- main.py
+
 |   |-- config.yaml
+
 |-- README.md
+
 |-- run.sh
+
 |-- requirements.txt
 
 
