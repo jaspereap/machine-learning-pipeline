@@ -5,7 +5,20 @@
 | Eap Wei Hang, Jasper | jaspereap@gmail.com |
 
 ### Overview of submitted folder
-Placeholder
+project/
+|-- data/
+|   |-- cruise_pre.db
+|   |-- cruise_post.db
+|-- src/
+|   |-- data.py
+|   |-- model.py
+|   |-- evaluate.py
+|   |-- main.py
+|   |-- config.yaml
+|-- README.md
+|-- run.sh
+|-- requirements.txt
+
 
 ### Instructions for executing pipeline and modifying any parameters
 Placeholder
