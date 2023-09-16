@@ -1,0 +1,24 @@
+data:
+  pre_purchase_db_path: data/cruise_pre.db
+  post_trip_db_path: data/cruise_post.db
+
+features:
+  - WiFi
+  - Dining
+  - Entertainment
+
+models:
+  - RandomForestClassifier
+  - LogisticRegression
+  - GradientBoostingClassifier
+
+hyperparameters:
+  RandomForestClassifier:
+    n_estimators: 100
+    max_depth: 5
+  LogisticRegression:
+    C: 1.0
+    penalty: l2
+  GradientBoostingClassifier:
+    n_estimators: 100
+    learning_rate: 0.1
