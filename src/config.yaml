@@ -1,6 +1,6 @@
 data:
-  pre_purchase_db_path: data/cruise_pre.db
-  post_trip_db_path: data/cruise_post.db
+  pre_purchase_db_path: ../data/cruise_pre.db
+  post_trip_db_path: ../data/cruise_post.db
 
 features:
   - WiFi
