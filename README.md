@@ -36,7 +36,27 @@ Placeholder
 Placeholder
 
 ### Summary of how features in the dataset are processed
-Placeholder
+| Feature                                    | Actions                                                                                        |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| Date of Birth                              | Used with `Logging` to calculate `Age`, then impute missing values with `mode`                 |
+| Source of Traffic                          | Encode-> Direct-Company Website=0, Email Marketing=1, Indirect-Search Engine=2, Social Media=3 |
+| Onboard Wifi Service                       | Encode-> Numeric ratings, impute missing value with `mode`                                     |
+| Onboard Dining Service                     | Encode-> Numeric ratings, impute missing value with `mode`                                     |
+| Cabin Comfort                              | Impute missing value with `mode`                                                               |
+| Onboard Entertainment                      | Encode-> Numeric ratings, impute missing value with `mode`                                     |
+| Cabin Service                              | Impute missing value with `mode`                                                               |
+| Onboard Service                            | Impute missing value with `mode`                                                               |
+| Cleanliness                                | Impute missing value with `mode`                                                               |
+| Embarkation/Disembarkation time Convenient | Impute missing value with `mode`                                                               |
+| Ease of Online booking                     | Impute missing value with `mode`                                                               |
+| Gate location                              | Impute missing value with `mode`                                                               |
+| Onboard Dining Service                     | Impute missing value with `mode`                                                               |
+| Online Check-in                            | Impute missing value with `mode`                                                               |
+| Baggage handling                           | Impute missing value with `mode`                                                               |
+| Port Check-in Service                      | Impute missing value with `mode`                                                               |
+| Logging                                    | Used with `Age` to calculate `Age`                                                             |
+| Cruise Name                                | Corrected spelling to either `Blastoise` or `Lapras`, impute missing value with `mode`         |
+| Cruise Distance                            | Correct invalid distances, convert all to kilometre, impute missing value with `mean`                                                                                               |
 
 ### Explanation of choice of models for each ML task
 Placeholder
