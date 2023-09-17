@@ -1,10 +1,10 @@
 # AIAP Batch 15 Technical Assessment
-### Personal Details
+## Personal Details
 | Full Name            | Email address       |
 | ---------------------| ------------------- |
 | Eap Wei Hang, Jasper | jaspereap@gmail.com |
 
-### Overview of submitted folder
+## Overview of submitted folder
 ```
 base/
 ├── .github/
@@ -23,8 +23,8 @@ base/
 └── run.sh
 ```
 
-### Instructions for executing pipeline and modifying any parameters
-#### To adjust parameters,
+## Instructions for executing pipeline and modifying any parameters
+### To adjust parameters,
 - Modify `config.yml`, under `hyperparameters` in `/src/`
 
 Current Parameters:
@@ -42,10 +42,10 @@ Current Parameters:
     2. learning_rate: 0.2
     3. random_state: 42
 
-#### To run MLP
+### To run MLP
 - Run `run.sh` via `./run.sh`
 
-### Description of logical steps of pipeline
+## Description of logical steps of pipeline
 **Outline:**
 1. **Data Loading**
     - Load raw data from the data source, into a format that is suitable for further processing.
@@ -70,13 +70,37 @@ Current Parameters:
 8. **Hyperparameter Tuning**
     - Fine-tune the hyperparameters of the chosen model(s) to further improve performance.
 
-### Exploratory Data Analysis (EDA)
-##### Overview of key findings
-Placeholder
-##### Choices made in pipeline based on findings
-Placeholder
+## Exploratory Data Analysis (EDA)
+### Overview of key findings
+**Handling Missing Values:**
+- Missing values were appropriately handled through imputation methods specific to each feature.
 
-### Summary of how features in the dataset are processed
+**Target Variable Distribution:**
+- The distribution of 'Ticket Type' revealed a balanced representation of Standard, Deluxe, and Luxury ticket types.
+
+**Correlation Analysis:**
+- Strong correlations were observed between specific features (e.g., 'Online Check-in', 'Port Check-in Service') and the target variable 'Ticket Type'.
+
+**Feature Importance:**
+- 'Age' was identified as the most influential feature for prediction, followed by 'Online Check-in' and 'Onboard Wifi Service'.
+
+### Choices made in pipeline based on findings
+**Missing Data Handling:**
+- Missing values were imputed using suitable methods for each feature.
+
+**Feature Selection:**
+- Features were selected based on their correlation with the target variable and their potential predictive power.
+
+**Feature Engineering:**
+- New features 'Onboard Experience' and 'Check-in Experience' were created to capture aggregated service ratings, providing a more comprehensive view.
+
+**Model Selection:**
+- Random Forest, Logistic Regression, and Gradient Boosting Classifier were chosen for their adaptability and effectiveness in classification tasks.
+
+**Hyperparameter Tuning:**
+- Hyperparameters were tuned for optimal model performance, such as setting 100 estimators for improved accuracy.
+
+## Summary of how features in the dataset are processed
 | Feature                                    | Actions                                                                                        |
 | ------------------------------------------ | ---------------------------------------------------------------------------------------------- |
 | Date of Birth                              | Used with `Logging` to calculate `Age`, then impute missing values with `mode`                 |
@@ -99,12 +123,12 @@ Placeholder
 | Cruise Name                                | Corrected spelling to either `Blastoise` or `Lapras`, impute missing value with `mode`         |
 | Cruise Distance                            | Correct invalid distances, convert all to kilometre, impute missing value with `mean`                                                                                               |
 
-### Explanation of choice of models for each ML task
+## Explanation of choice of models for each ML task
 Placeholder
 
-### Evaluation of models developed
+## Evaluation of models developed
 Placeholder
 Include explanation for any metrics used in evaluation
 
-### Other considerations for deploying the models developed
+## Other considerations for deploying the models developed
 Placeholder
