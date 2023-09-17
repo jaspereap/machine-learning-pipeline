@@ -24,7 +24,10 @@ base/
 ```
 
 ### Instructions for executing pipeline and modifying any parameters
-Placeholder
+#### To adjust parameters
+- Modify `config.yml` in `/src/`
+#### To run MLP
+- Run `run.sh`
 
 ### Description of logical steps of pipeline
 Placeholder
