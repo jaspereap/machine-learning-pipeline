@@ -5,32 +5,18 @@
 | Eap Wei Hang, Jasper | jaspereap@gmail.com |
 
 ### Overview of submitted folder
-project/
-
-|-- data/
-
-|   |-- cruise_pre.db
-
-|   |-- cruise_post.db
-
-|-- src/
-
-|   |-- data.py
-
-|   |-- model.py
-
-|   |-- evaluate.py
-
-|   |-- main.py
-
-|   |-- config.yaml
-
-|-- README.md
-
-|-- run.sh
-
-|-- requirements.txt
-
+base/
+├── src/
+│   ├── data.py
+│   ├── model.py
+│   ├── evaluate.py
+│   ├── main.py
+│   ├── feature_engineering.py
+│   └── config.yml
+├── eda.ipynb
+├── requirements.txt
+├── README.md
+└── run.sh
 
 ### Instructions for executing pipeline and modifying any parameters
 Placeholder
