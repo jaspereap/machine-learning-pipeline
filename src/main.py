@@ -16,10 +16,12 @@ import evaluate
 
 def main():
     config = data.load_config('src/config.yaml')
+    models_to_train = config['models']
+    hyperparameters = config['hyperparameters']
 
     cruise_pre_data = data.load_data_set('cruise_pre.db', config)
     cruise_post_data = data.load_data_set('cruise_post.db', config)
-    merged_data = cruise_pre_data.merge(cruise_post_data, left_on='Ext_Intcode', right_on='Ext_Intcode')
+    merged_data = data.merge_data(cruise_pre_data, cruise_post_data, on='Ext_Intcode')
 
     # Preprocess data
     preprocessor = data.DataPreprocessor(merged_data)
@@ -37,8 +39,7 @@ def main():
     # Add new feature: Check-in Experience
     merged_data = feature_engineering.add_check_in_experience(merged_data)
 
-    models_to_train = config['models']
-    hyperparameters = config['hyperparameters']
+
     feature_columns = ['Onboard Wifi Service',
                     'Embarkation/Disembarkation time convenient',
                     'Ease of Online booking',
@@ -51,7 +52,10 @@ def main():
                     'Baggage handling',
                     'Port Check-in Service',
                     'Onboard Service',
-                    'Cleanliness']
+                    'Cleanliness',
+                    'Age',
+                    'Onboard Experience',
+                    'Check-in Experience']
     X = merged_data[feature_columns]
     y = merged_data['Ticket Type']
 
@@ -61,11 +65,11 @@ def main():
     RF_hyperparams = config['hyperparameters']['RandomForestClassifier']
     n_estimators = RF_hyperparams['n_estimators']
     random_state = RF_hyperparams['random_state']
-    
+
     RF_model = model.train_random_forest(X_train, y_train, n_estimators, random_state)
 
     RF_accuracy = evaluate.evaluate_model(RF_model, X_test, y_test)
-    print(f"RF Accuracy: {RF_accuracy}")
+    print(f"Random Forest Accuracy: {RF_accuracy}")
 
     # Logistic Regression
     LR_hyperparams = config['hyperparameters']['LogisticRegression']
@@ -76,7 +80,7 @@ def main():
     LR_model = model.train_logistic_regression(X_train, y_train, C, penalty, max_iter)
     
     LR_accuracy = evaluate.evaluate_model(LR_model, X_test, y_test)
-    print(f"LR Accuracy: {LR_accuracy}")
+    print(f"Logistic Regression Accuracy: {LR_accuracy}")
 
 
     # for model_name in models_to_train:

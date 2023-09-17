@@ -20,7 +20,7 @@ hyperparameters:
   LogisticRegression:
     C: 1.0
     penalty: l2
-    max_iter: 200
+    max_iter: 500
   GradientBoostingClassifier:
     n_estimators: 100
     learning_rate: 0.1

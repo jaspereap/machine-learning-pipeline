@@ -1,3 +1,5 @@
+# This module holds function for evaluating model
+
 from sklearn.metrics import accuracy_score
 
 def evaluate_model(model, X, y):

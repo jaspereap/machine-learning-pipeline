@@ -1,3 +1,5 @@
+# This modules hold functions for training models
+
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.ensemble import RandomForestClassifier

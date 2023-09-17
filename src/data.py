@@ -22,25 +22,23 @@ def load_data_set(db_name, config):
         return conn
     # Define variable to store name of the tables
     table_name = db_name.rstrip('.db')
-
     # Create connection to database using defined function
     conn = get_db_connection('data/'+ table_name + '.db')
-
     # Execute query to fetch all rows and columns
     db_query_output = conn.execute('SELECT * FROM {}'.format(table_name)).fetchall()
-
     # Append row to data store
     for row in db_query_output:
         data.append(dict(row))
-
     # close database connection after completion of task
     conn.close()
-
     # Read list of dictionaries into Pandas Dataframe
     # Set 'index' column as index
     data = pd.DataFrame(data=data).set_index('index')
-
     return data
+
+def merge_data(df1, df2, on):
+    df = df1.merge(df2, left_on=on, right_on=on)
+    return df
 
 class DataPreprocessor:
     def __init__(self, df):
