@@ -138,3 +138,45 @@ class DataPreprocessor:
         self.df = self.correct_dining_datatype()
         self.df = self.encode_column()
         return self.df
+    
+class MissingDataHandler:
+    def __init__(self, df):
+        self.df = df
+    
+    def drop_ticket_type(self):
+        # Drop missing data
+        self.df.dropna(subset=['Ticket Type'], inplace=True)
+        return self.df
+
+    def impute_cruise_name(self):
+        # Replace missing data with the column's mode
+        self.df['Cruise Name'].fillna(self.df['Cruise Name'].mode()[0], inplace=True)
+        return self.df
+
+    def impute_gender(self):
+        # Replace missing data with the column's mode
+        self.df['Gender'].fillna(self.df['Gender'].mode()[0], inplace=True)
+        return self.df
+
+    def impute_indicators(self):
+        # Define columns to be replaced
+        rating_columns = ['Onboard Wifi Service',
+                        'Embarkation/Disembarkation time convenient',
+                        'Ease of Online booking',
+                        'Gate location',
+                        'Onboard Dining Service',
+                        'Online Check-in',
+                        'Cabin Comfort',
+                        'Onboard Entertainment',
+                        'Cabin service',
+                        'Baggage handling',
+                        'Port Check-in Service',
+                        'Onboard Service',
+                        'Cleanliness']
+
+        # Replace missing data with the column's mode
+        for column in rating_columns:
+            self.df[column].fillna(self.df[column].mode()[0], inplace=True)
+
+        return self.df
+    
