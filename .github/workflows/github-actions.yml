@@ -1,6 +1,5 @@
 name: AIAP Assessment 2
-# on: [push, workflow_dispatch]
-on: []
+on: [push, workflow_dispatch]
 
 jobs:
   run-end-to-end-pipeline:
