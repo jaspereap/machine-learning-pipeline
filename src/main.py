@@ -36,16 +36,15 @@ def main():
                     'Cabin service',
                     'Onboard Service',
                     'Cleanliness',
-                    'Embarkation/Disembarkation time convenient',
+                    'Onboard Experience',
+                    'Age',
                     'Ease of Online booking',
+                    'Onboard Experience',
+                    'Check-in Experience',
                     'Gate location',
                     'Onboard Dining Service',
                     'Online Check-in',
-                    'Baggage handling',
-                    'Port Check-in Service',
-                    'Age',
-                    'Onboard Experience',
-                    'Check-in Experience']
+                    'Ease of Online booking']
     
     X = merged_data[feature_columns]
     y = merged_data['Ticket Type']
@@ -57,8 +56,12 @@ def main():
         train_function = getattr(model, f'train_{model_name}')
         trained_model = train_function(X_train, y_train, **hyperparams)
         metrics = evaluate.evaluate_model(trained_model, X_test, y_test)
+        print(f'Feature Columns: {feature_columns}')
         print(f'{model_name} - Metrics:')
-        print(f'{metrics}')
+        print(f"Accuracy = {round(metrics['Accuracy'], 2)}")
+        print(f"Precision = {round(metrics['Precision'], 2)}")
+        print(f"Recall = {round(metrics['Recall'], 2)}")
+        print(f"F1 Score = {round(metrics['F1 Score'], 2)}\n")
 
 if __name__ == '__main__':
     main()
