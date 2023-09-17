@@ -46,7 +46,52 @@ Current Parameters:
 - Run `run.sh` via `./run.sh`
 
 ### Description of logical steps of pipeline
-Placeholder
+**Outline:**
+1. Data Loading
+2. Basic Data Exploration
+
+    2a. Findings
+
+    2ai. Pre-purchase Survey
+
+    2aii. Post-trip Data
+        
+3. Data Preprocessing
+
+    3a. Merging Dataset
+
+    3b. Standardising Indicator Value
+
+    3c. Standardising Cruise Name
+
+    3d. Standising Cruise Distance
+
+    3e. Correct Indicators with Invalid Ratings
+
+    3f. Correct `Dining` column data type
+
+    3g. Encode `Ticket Type`, `Gender` and `Source of Traffic`
+
+    3h. Handling Missing Data
+
+      3hi. Drop NaN Rows in `Ticket Type` Column
+
+      3hii. Imput NaN Rows in `Cruise Name` with Column Mode
+
+      3hiii. Impute NaN Rows in `Gender` with Column Mode
+
+      3hiv. Impute NaN Rows in `Onboard Dining Service` to `Cleanliness` with Column Mode
+
+      3hvi. Impute NaN Rows in `Cruise Distance` with Column Mean
+4. Feature Engineering
+
+    4a. Create `Age` Column from `Date of Birth` and `Logging`
+
+    4b. Create `Onboard Experience` Rating
+
+    4c. Create `Check-in Experience` Rating
+    
+5. In-Depth Data Exploration
 
 ### Exploratory Data Analysis (EDA)
 ##### Overview of key findings
