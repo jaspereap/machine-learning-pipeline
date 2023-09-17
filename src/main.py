@@ -1,18 +1,8 @@
-# Possible models for this project
-# Logistic Regression
-# Random Forest Classifier
-# Gradient Boosting Classifier
-
-# General to-do
-# Data preprocessing - decide how to handle missing values etc.
-# Split data into training and testing sets - do random selection
-# Evaluation metrics: accuracy, precision, recall, F1-score
-
 import data
 import feature_engineering
-from sklearn.model_selection import train_test_split
 import model
 import evaluate
+from sklearn.model_selection import train_test_split
 
 def main():
     config = data.load_config('src/config.yaml')
@@ -39,7 +29,6 @@ def main():
     # Add new feature: Check-in Experience
     merged_data = feature_engineering.add_check_in_experience(merged_data)
 
-
     feature_columns = ['Onboard Wifi Service',
                     'Embarkation/Disembarkation time convenient',
                     'Ease of Online booking',
@@ -52,43 +41,18 @@ def main():
                     'Baggage handling',
                     'Port Check-in Service',
                     'Onboard Service',
-                    'Cleanliness',
-                    'Age',
-                    'Onboard Experience',
-                    'Check-in Experience']
+                    'Cleanliness',]
     X = merged_data[feature_columns]
     y = merged_data['Ticket Type']
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    # Random Forest Classifier
-    RF_hyperparams = config['hyperparameters']['RandomForestClassifier']
-    n_estimators = RF_hyperparams['n_estimators']
-    random_state = RF_hyperparams['random_state']
-
-    RF_model = model.train_random_forest(X_train, y_train, n_estimators, random_state)
-
-    RF_accuracy = evaluate.evaluate_model(RF_model, X_test, y_test)
-    print(f"Random Forest Accuracy: {RF_accuracy}")
-
-    # Logistic Regression
-    LR_hyperparams = config['hyperparameters']['LogisticRegression']
-    C = LR_hyperparams['C']
-    penalty = LR_hyperparams['penalty']
-    max_iter = LR_hyperparams['max_iter']
-
-    LR_model = model.train_logistic_regression(X_train, y_train, C, penalty, max_iter)
-    
-    LR_accuracy = evaluate.evaluate_model(LR_model, X_test, y_test)
-    print(f"Logistic Regression Accuracy: {LR_accuracy}")
-
-
-    # for model_name in models_to_train:
-    #     hyperparams = hyperparameters[model_name]
-    #     train_func = getattr(model, f'train_{model_name}')
-    #     trained_model = train_func(engineered_features, y, **hyperparams)
-    #     accuracy = evaluate.evaluate_model(trained_model, X_test, y_test)
-    #     print(f'{model_name} - Accuracy: {accuracy}')
+    for model_name in models_to_train:
+        hyperparams = hyperparameters[model_name]
+        train_function = getattr(model, f'train_{model_name}')
+        trained_model = train_function(X_train, y_train, **hyperparams)
+        accuracy = evaluate.evaluate_model(trained_model, X_test, y_test)
+        print(f'{model_name} - Accuracy: {accuracy}')
 
 if __name__ == '__main__':
     main()
