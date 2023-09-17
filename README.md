@@ -47,63 +47,28 @@ Current Parameters:
 
 ### Description of logical steps of pipeline
 **Outline:**
-1. Data Loading
-2. Basic Data Exploration
-
-    2a. Findings
-
-    2ai. Pre-purchase Survey
-
-    2aii. Post-trip Data
-        
-3. Data Preprocessing
-
-    3a. Merging Dataset
-
-    3b. Standardising Indicator Value
-
-    3c. Standardising Cruise Name
-
-    3d. Standising Cruise Distance
-
-    3e. Correct Indicators with Invalid Ratings
-
-    3f. Correct `Dining` column data type
-
-    3g. Encode `Ticket Type`, `Gender` and `Source of Traffic`
-
-    3h. Handling Missing Data
-
-      3hi. Drop NaN Rows in `Ticket Type` Column
-
-      3hii. Imput NaN Rows in `Cruise Name` with Column Mode
-
-      3hiii. Impute NaN Rows in `Gender` with Column Mode
-
-      3hiv. Impute NaN Rows in `Onboard Dining Service` to `Cleanliness` with Column Mode
-
-      3hvi. Impute NaN Rows in `Cruise Distance` with Column Mean
-4. Feature Engineering
-
-    4a. Create `Age` Column from `Date of Birth` and `Logging`
-
-    4b. Create `Onboard Experience` Rating
-
-    4c. Create `Check-in Experience` Rating
-    
-5. In-Depth Data Exploration
-
-    5a. Summary Statistics
-
-    5b. General Distribution
-
-    5bi. Histogram of `Age` amd `Ticket Type`
-        
-    5bii. Boxplot `Ticket Type` against `Age`
-
-    5biii. Boxplot `Onboard Experience` against `Age`
-
-    5c. Random Forest Features Importance Analysis
+1. **Data Loading**
+    - Load raw data from the data source, into a format that is suitable for further processing.
+2. **Basic Data Exploration**
+    - Initial EDA to understand the characteristics of the dataset.
+    - Includes checking for missing values, basic statistics and visualizing distributions of variables.
+3. **Data Preprocessing**
+    - Cleaning and preparing the data for modeling.
+    - Includes handling missing values, encoding categorical variables, scaling numerical features, and other necessary data transformations.
+4. **Feature Engineering**
+    - Create additional features to improve performance of the machine learning model.
+    - Includes creating transformation and interactions of existing features.
+5. **In-Depth Data Exploration**
+    - After preprocessing and feature engineering, a more detailed EDA can be performed to understand how the new features interact with the target variable.
+    - Includes using bivariate plots and feature importance classifiers to identify relevant features
+6. **Model Selection**
+    - Choose a set of models suitable for the prediction problem.
+    - In this case, for multi-class classification problem.
+7. **Model Training and Evaluation**
+    - Train selected models on processed and engineered dataset.
+    - Evaluate performance using metrics such as accuracy, precision, recall and F1-score and choose the best performing one.
+8. **Hyperparameter Tuning**
+    - Fine-tune the hyperparameters of the chosen model(s) to further improve performance.
 
 ### Exploratory Data Analysis (EDA)
 ##### Overview of key findings
