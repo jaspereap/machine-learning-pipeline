@@ -7,6 +7,9 @@
 ### Overview of submitted folder
 ```
 base/
+├── .github/
+│   └── workflows/
+│       └── github-actions.yml
 ├── src/
 │   ├── data.py
 │   ├── model.py
@@ -19,7 +22,6 @@ base/
 ├── README.md
 └── run.sh
 ```
-
 
 ### Instructions for executing pipeline and modifying any parameters
 Placeholder
