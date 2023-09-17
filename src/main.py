@@ -19,7 +19,6 @@ def main():
     cruise_pre_data = data.load_data_set('cruise_pre.db', config)
     cruise_post_data = data.load_data_set('cruise_post.db', config)
     merged_data = cruise_pre_data.merge(cruise_post_data, left_on='Ext_Intcode', right_on='Ext_Intcode')
-    print(merged_data.head())
 
     # Preprocess data
     preprocessor = data.DataPreprocessor(merged_data)
@@ -29,12 +28,14 @@ def main():
     missingHandler = data.MissingDataHandler(merged_data)
     merged_data = missingHandler.handle_missing_data()
 
-    print(merged_data.head())
-
     # Add new feature: Age
     merged_data = feature_engineering.add_age(merged_data)
+    # Add new feature: Onboard Experience
+    merged_data = feature_engineering.add_onboard_experience(merged_data)
+    # Add new feature: Check-in Experience
+    merged_data = feature_engineering.add_check_in_experience(merged_data)
 
-    print(merged_data['Age'].head())
+    # print(merged_data.head())
 
     # models_to_train = config['models']
     
