@@ -93,6 +93,18 @@ Current Parameters:
     
 5. In-Depth Data Exploration
 
+    5a. Summary Statistics
+
+    5b. General Distribution
+
+    5bi. Histogram of `Age` amd `Ticket Type`
+        
+    5bii. Boxplot `Ticket Type` against `Age`
+
+    5biii. Boxplot `Onboard Experience` against `Age`
+
+    5c. Random Forest Features Importance Analysis
+
 ### Exploratory Data Analysis (EDA)
 ##### Overview of key findings
 Placeholder
