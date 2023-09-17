@@ -1,10 +1,12 @@
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import GradientBoostingClassifier
 
-def train_random_forest(X, y, n_estimators, max_depth):
+
+from sklearn.ensemble import RandomForestClassifier
+
+def train_random_forest(X, y, n_estimators, random_state):
     # Train a Random Forest Classifier
-    model = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth)
+    model = RandomForestClassifier(n_estimators=n_estimators, random_state=random_state)
     model.fit(X, y)
     return model
 

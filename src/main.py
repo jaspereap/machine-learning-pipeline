@@ -10,8 +10,9 @@
 
 import data
 import feature_engineering
-# import model
-# import evaluate
+from sklearn.model_selection import train_test_split
+import model
+import evaluate
 
 def main():
     config = data.load_config('src/config.yaml')
@@ -28,6 +29,7 @@ def main():
     missingHandler = data.MissingDataHandler(merged_data)
     merged_data = missingHandler.handle_missing_data()
 
+    merged_data = merged_data.copy()
     # Add new feature: Age
     merged_data = feature_engineering.add_age(merged_data)
     # Add new feature: Onboard Experience
@@ -35,12 +37,30 @@ def main():
     # Add new feature: Check-in Experience
     merged_data = feature_engineering.add_check_in_experience(merged_data)
 
-    # print(merged_data.head())
+    models_to_train = config['models']
+    hyperparameters = config['hyperparameters']
+    feature_columns = ['Onboard Wifi Service',
+                    'Embarkation/Disembarkation time convenient',
+                    'Ease of Online booking',
+                    'Gate location',
+                    'Onboard Dining Service',
+                    'Online Check-in',
+                    'Cabin Comfort',
+                    'Onboard Entertainment',
+                    'Cabin service',
+                    'Baggage handling',
+                    'Port Check-in Service',
+                    'Onboard Service',
+                    'Cleanliness']
+    X = merged_data[feature_columns]
+    y = merged_data['Ticket Type']
 
-    # models_to_train = config['models']
-    
-    # hyperparameters = config['hyperparameters']
-    
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    RF_model = model.train_random_forest(X_train, y_train, 100, 42)
+
+    accuracy = evaluate.evaluate_model(RF_model, X_test, y_test)
+    print(f"Accuracy: {accuracy}")
+
     # for model_name in models_to_train:
     #     hyperparams = hyperparameters[model_name]
     #     train_func = getattr(model, f'train_{model_name}')
