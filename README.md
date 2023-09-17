@@ -88,11 +88,11 @@ Current Parameters:
 **Missing Data Handling:**
 - Missing values were imputed using suitable methods for each feature.
 
-**Feature Selection:**
-- Features were selected based on their correlation with the target variable and their potential predictive power.
-
 **Feature Engineering:**
-- New features 'Onboard Experience' and 'Check-in Experience' were created to capture aggregated service ratings, providing a more comprehensive view.
+- New features `Onboard Experience` and `Check-in Experience` were created to capture aggregated service ratings, providing a more comprehensive view.
+
+**Feature Selection:**
+- `Age` was identified as the most influential feature, followed by `Onboard Experience` and `Check-in Experience`
 
 **Model Selection:**
 - Random Forest, Logistic Regression, and Gradient Boosting Classifier were chosen for their adaptability and effectiveness in classification tasks.
