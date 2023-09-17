@@ -24,10 +24,26 @@ base/
 ```
 
 ### Instructions for executing pipeline and modifying any parameters
-#### To adjust parameters
-- Modify `config.yml` in `/src/`
+#### To adjust parameters,
+- Modify `config.yml`, under `hyperparameters` in `/src/`
+
+Current Parameters:
+  - RandomForestClassifier
+    1. n_estimators: 200
+    2. random_state: 42
+    3. max_depth: 7
+  - LogisticRegression:
+    1. C: 0.8
+    2. penalty: l2
+    3. max_iter: 700
+    4. solver: 'sag'
+  - GradientBoostingClassifier:
+    1. n_estimators: 200
+    2. learning_rate: 0.2
+    3. random_state: 42
+
 #### To run MLP
-- Run `run.sh`
+- Run `run.sh` via `./run.sh`
 
 ### Description of logical steps of pipeline
 Placeholder
