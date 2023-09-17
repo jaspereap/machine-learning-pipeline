@@ -10,9 +10,9 @@ def train_RandomForestClassifier(X, y, n_estimators, random_state, max_depth):
     model.fit(X, y)
     return model
 
-def train_LogisticRegression(X, y, C, penalty, max_iter):
+def train_LogisticRegression(X, y, C, penalty, max_iter, solver):
     # Train a Logistic Regression Classifier
-    model = LogisticRegression(C=C, penalty=penalty, max_iter=max_iter)
+    model = LogisticRegression(C=C, penalty=penalty, max_iter=max_iter, solver=solver)
     model.fit(X, y)
     return model
 
