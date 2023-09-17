@@ -29,7 +29,6 @@ def main():
     # Add new feature: Check-in Experience
     merged_data = feature_engineering.add_check_in_experience(merged_data)
 
-# Check-in Experience
     feature_columns = ['Onboard Wifi Service',
                     'Onboard Dining Service',
                     'Cabin Comfort',
@@ -37,8 +36,6 @@ def main():
                     'Cabin service',
                     'Onboard Service',
                     'Cleanliness',
-                    'Onboard Experience',
-                    'Check-in Experience',
                     'Embarkation/Disembarkation time convenient',
                     'Ease of Online booking',
                     'Gate location',
@@ -49,6 +46,7 @@ def main():
                     'Age',
                     'Onboard Experience',
                     'Check-in Experience']
+    
     X = merged_data[feature_columns]
     y = merged_data['Ticket Type']
 
@@ -58,8 +56,9 @@ def main():
         hyperparams = hyperparameters[model_name]
         train_function = getattr(model, f'train_{model_name}')
         trained_model = train_function(X_train, y_train, **hyperparams)
-        accuracy = evaluate.evaluate_model(trained_model, X_test, y_test)
-        print(f'{model_name} - Accuracy: {accuracy}')
+        metrics = evaluate.evaluate_model(trained_model, X_test, y_test)
+        print(f'{model_name} - Metrics:')
+        print(f'{metrics}')
 
 if __name__ == '__main__':
     main()
