@@ -29,19 +29,26 @@ def main():
     # Add new feature: Check-in Experience
     merged_data = feature_engineering.add_check_in_experience(merged_data)
 
+# Check-in Experience
     feature_columns = ['Onboard Wifi Service',
+                    'Onboard Dining Service',
+                    'Cabin Comfort',
+                    'Onboard Entertainment',
+                    'Cabin service',
+                    'Onboard Service',
+                    'Cleanliness',
+                    'Onboard Experience',
+                    'Check-in Experience',
                     'Embarkation/Disembarkation time convenient',
                     'Ease of Online booking',
                     'Gate location',
                     'Onboard Dining Service',
                     'Online Check-in',
-                    'Cabin Comfort',
-                    'Onboard Entertainment',
-                    'Cabin service',
                     'Baggage handling',
                     'Port Check-in Service',
-                    'Onboard Service',
-                    'Cleanliness',]
+                    'Age',
+                    'Onboard Experience',
+                    'Check-in Experience']
     X = merged_data[feature_columns]
     y = merged_data['Ticket Type']
 
