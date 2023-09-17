@@ -1,8 +1,9 @@
 #!/bin/bash
 
-echo "Hello, this is a run.sh script!"
+echo "Running Machine Learning Pipeline for ShipSail v1.0"
+echo
 
 # Run main script
 python src/main.py
 
-# Command: 'chmod +x run.sh'
+echo "Script Completed!"
