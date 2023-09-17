@@ -152,7 +152,11 @@ class MissingDataHandler:
         # Replace missing data with the column's mode
         self.df['Cruise Name'].fillna(self.df['Cruise Name'].mode()[0], inplace=True)
         return self.df
-
+    
+    def impute_cruise_distance(self):
+        self.df['Cruise Distance'].fillna(self.df['Cruise Distance'].mean(), inplace=True)
+        return self.df
+    
     def impute_gender(self):
         # Replace missing data with the column's mode
         self.df['Gender'].fillna(self.df['Gender'].mode()[0], inplace=True)
@@ -178,5 +182,13 @@ class MissingDataHandler:
         for column in rating_columns:
             self.df[column].fillna(self.df[column].mode()[0], inplace=True)
 
+        return self.df
+    
+    def handle_missing_data(self):
+        self.df = self.drop_ticket_type()
+        self.df = self.impute_cruise_name()
+        self.df = self.impute_cruise_distance()
+        self.df = self.impute_gender()
+        self.df = self.impute_indicators()
         return self.df
     

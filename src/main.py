@@ -9,7 +9,7 @@
 # Evaluation metrics: accuracy, precision, recall, F1-score
 
 import data
-# import feature_engineering
+import feature_engineering
 # import model
 # import evaluate
 
@@ -21,10 +21,20 @@ def main():
     merged_data = cruise_pre_data.merge(cruise_post_data, left_on='Ext_Intcode', right_on='Ext_Intcode')
     print(merged_data.head())
 
+    # Preprocess data
     preprocessor = data.DataPreprocessor(merged_data)
     merged_data = preprocessor.preprocess_data()
-    
-    print(merged_data['Ease of Online booking'].head())
+
+    # Handle missing data
+    missingHandler = data.MissingDataHandler(merged_data)
+    merged_data = missingHandler.handle_missing_data()
+
+    print(merged_data.head())
+
+    # Add new feature: Age
+    merged_data = feature_engineering.add_age(merged_data)
+
+    print(merged_data['Age'].head())
 
     # models_to_train = config['models']
     
