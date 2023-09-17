@@ -1,7 +1,5 @@
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import GradientBoostingClassifier
-
-
 from sklearn.ensemble import RandomForestClassifier
 
 def train_random_forest(X, y, n_estimators, random_state):
@@ -10,9 +8,9 @@ def train_random_forest(X, y, n_estimators, random_state):
     model.fit(X, y)
     return model
 
-def train_logistic_regression(X, y, C, penalty):
+def train_logistic_regression(X, y, C, penalty, max_iter):
     # Train a Logistic Regression Classifier
-    model = LogisticRegression(C=C, penalty=penalty)
+    model = LogisticRegression(C=C, penalty=penalty, max_iter=max_iter)
     model.fit(X, y)
     return model
 

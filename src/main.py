@@ -56,10 +56,28 @@ def main():
     y = merged_data['Ticket Type']
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    RF_model = model.train_random_forest(X_train, y_train, 100, 42)
 
-    accuracy = evaluate.evaluate_model(RF_model, X_test, y_test)
-    print(f"Accuracy: {accuracy}")
+    # Random Forest Classifier
+    RF_hyperparams = config['hyperparameters']['RandomForestClassifier']
+    n_estimators = RF_hyperparams['n_estimators']
+    random_state = RF_hyperparams['random_state']
+    
+    RF_model = model.train_random_forest(X_train, y_train, n_estimators, random_state)
+
+    RF_accuracy = evaluate.evaluate_model(RF_model, X_test, y_test)
+    print(f"RF Accuracy: {RF_accuracy}")
+
+    # Logistic Regression
+    LR_hyperparams = config['hyperparameters']['LogisticRegression']
+    C = LR_hyperparams['C']
+    penalty = LR_hyperparams['penalty']
+    max_iter = LR_hyperparams['max_iter']
+
+    LR_model = model.train_logistic_regression(X_train, y_train, C, penalty, max_iter)
+    
+    LR_accuracy = evaluate.evaluate_model(LR_model, X_test, y_test)
+    print(f"LR Accuracy: {LR_accuracy}")
+
 
     # for model_name in models_to_train:
     #     hyperparams = hyperparameters[model_name]
