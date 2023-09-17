@@ -2,3 +2,5 @@
 src/__pycache__/feature_engineering.cpython-311.pyc
 src/__pycache__/data.cpython-311.pyc
 src/temp.py
+data/cruise_post.db
+data/cruise_pre.db
