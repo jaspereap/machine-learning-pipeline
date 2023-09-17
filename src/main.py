@@ -18,8 +18,15 @@ def main():
 
     cruise_pre_data = data.load_data_set('cruise_pre.db', config)
     cruise_post_data = data.load_data_set('cruise_post.db', config)
+    merged_data = cruise_pre_data.merge(cruise_post_data, left_on='Ext_Intcode', right_on='Ext_Intcode')
+    print(merged_data.head())
+
+    preprocessor = data.DataPreprocessor(merged_data)
+    merged_data = preprocessor.preprocess_data()
     
-    models_to_train = config['models']
+    print(merged_data['Ease of Online booking'].head())
+
+    # models_to_train = config['models']
     
     # hyperparameters = config['hyperparameters']
     
