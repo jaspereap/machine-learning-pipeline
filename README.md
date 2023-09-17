@@ -5,6 +5,7 @@
 | Eap Wei Hang, Jasper | jaspereap@gmail.com |
 
 ### Overview of submitted folder
+```
 base/
 ├── src/
 │   ├── data.py
@@ -17,6 +18,8 @@ base/
 ├── requirements.txt
 ├── README.md
 └── run.sh
+```
+
 
 ### Instructions for executing pipeline and modifying any parameters
 Placeholder
