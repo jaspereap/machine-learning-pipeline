@@ -36,3 +36,25 @@ def add_age(df):
     df = df[df['Age'] <= 120]
 
     return df
+
+def add_onboard_experience(df):
+    # Define the list of columns to be averaged
+    onboard_experience_columns = ['Onboard Wifi Service', 'Onboard Dining Service',
+                                'Cabin Comfort', 'Onboard Entertainment',
+                                'Cabin service', 'Cleanliness']
+
+    # Calculate the average for the new column
+    df['Onboard Experience'] = df[onboard_experience_columns].mean(axis=1).round()
+    return df
+
+def add_check_in_experience(df):
+    # Define the list of columns to be averaged
+    check_in_experience_columns = ['Embarkation/Disembarkation time convenient', 
+                                    'Gate location', 
+                                    'Online Check-in', 
+                                    'Baggage handling', 
+                                    'Port Check-in Service']
+
+    # Calculate the average for the new column
+    df['Check-in Experience'] = df[check_in_experience_columns].mean(axis=1).round()
+    return df
