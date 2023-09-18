@@ -19,8 +19,8 @@ def main():
     merged_data = preprocessor.preprocess_data()
 
     # Handle missing data
-    missingHandler = data.MissingDataHandler(merged_data)
-    merged_data = missingHandler.handle_missing_data()
+    missinghandler = data.MissingDataHandler(merged_data)
+    merged_data = missinghandler.handle_missing_data()
 
     merged_data = merged_data.copy()
     # Add new feature: Age
@@ -44,6 +44,7 @@ def main():
                     'Gate location',
                     'Onboard Dining Service',
                     'Online Check-in']
+    
     target_column = ['Ticket Type']
     print(f'Feature Columns: {feature_columns}')
     print(f'Target Column: {target_column}')

@@ -84,7 +84,7 @@ Current Parameters:
 - Younger passengers has low preference for `Cleanliness`
 
 **Correlation Analysis:**
-- Strong correlations were observed between features like `Cruise Distance`, `Online Check-in` and `Onboard Experience` and the target variable 'Ticket Type'.
+- Strong correlations were observed between features like `Cruise Distance`, `Online Check-in` and `Onboard Experience` and the target variable `Ticket Type`.
 
 **Feature Importance:**
 - `Age` was identified as the most influential feature for prediction, followed by `Onboard Experience` and 'Check-in Experience'.
@@ -140,13 +140,28 @@ Feature                                    | Actions                            
     - ..
 
 **Gradient Boosting Classifier:**
-- ..
+| Metric | Score |
+| ------ | ----- |
+|Accuracy|0.73|
+|Precision|0.7|
+|Recall|0.73|
+|F1-Score|0.71|
 
 **Logistic Regression:**
-- ..
+| Metric | Score |
+| ------ | ----- |
+|Accuracy|0.62|
+|Precision|0.65|
+|Recall|0.62|
+|F1-Score|0.6|
 
 **Random Forest Classifier:**
-- ..
+| Metric | Score |
+| ------ | ----- |
+|Accuracy|0.7|
+|Precision|0.73|
+|Recall|0.7|
+|F1-Score|0.67|
 
 ## Other considerations for deploying the models developed
 Placeholder
