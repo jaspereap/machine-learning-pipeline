@@ -123,10 +123,19 @@ Feature                                    | Actions                            
 | Cruise Distance                            | Correct invalid distances, convert all to kilometre, impute missing value with `mean`                |
 
 ## Explanation of choice of models for each ML task
+- This is a multi-class classification problem, the model needs to be able to handle multi-class target variable.
 **Models Used:**
 - Gradient Boosting Classifier
+    - Gradient Boosting Classifiers are powerful techniques for multi-class classification tasks.
+
 - Logistic Regression
+    - Logistic Regression is a widely used linear model for binary and multi-class classification.
+    - Not only is it computationally efficient, it serves as a good baseline model
+
 - Random Forest Classifier
+    - Random Forest Classifiers builds multiple decision trees and combines their output to make predictions.
+    - Works well with categorical features, well-suited for multi-class classification tasks
+    - Also capable of providing feature importance scores, which can be useful for understanding the influence of variables in the classification process.
 
 ## Evaluation of models developed
 **Metrics Considered for Evaluation:**
