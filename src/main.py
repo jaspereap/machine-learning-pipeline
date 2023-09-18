@@ -3,6 +3,7 @@ import feature_engineering
 import model
 import evaluate
 from sklearn.model_selection import train_test_split
+import numpy as np
 
 def main():
     config = data.load_config('src/config.yaml')
@@ -39,24 +40,27 @@ def main():
                     'Onboard Experience',
                     'Age',
                     'Ease of Online booking',
-                    'Onboard Experience',
                     'Check-in Experience',
                     'Gate location',
                     'Onboard Dining Service',
-                    'Online Check-in',
-                    'Ease of Online booking']
-    
+                    'Online Check-in']
+    target_column = ['Ticket Type']
+    print(f'Feature Columns: {feature_columns}')
+    print(f'Target Column: {target_column}')
+
+    # Setting up feature columns X and target column y
     X = merged_data[feature_columns]
-    y = merged_data['Ticket Type']
+    y = np.ravel(merged_data[target_column])
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    # Splitting exisiting dataset into train and test data
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
+    # Iterate model training and model evaluation for each model of interest
     for model_name in models_to_train:
         hyperparams = hyperparameters[model_name]
         train_function = getattr(model, f'train_{model_name}')
         trained_model = train_function(X_train, y_train, **hyperparams)
         metrics = evaluate.evaluate_model(trained_model, X_test, y_test)
-        print(f'Feature Columns: {feature_columns}')
         print(f'{model_name} - Metrics:')
         print(f"Accuracy = {round(metrics['Accuracy'], 2)}")
         print(f"Precision = {round(metrics['Precision'], 2)}")
