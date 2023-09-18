@@ -119,7 +119,7 @@ Feature                                    | Actions                            
 | Baggage handling                           | Impute missing value with `mode`                                                               |
 | Port Check-in Service                      | Impute missing value with `mode`                                                               |
 | Logging                                    | Used with `Age` to calculate `Age`                                                             |
-| Cruise Name                                | Corrected spelling to either `Blastoise` or `Lapras`, impute missing value with `mode`         |
+| Cruise Name                                | Correct spelling to either `Blastoise` or `Lapras`, impute missing value with `mode`         |
 | Cruise Distance                            | Correct invalid distances, convert all to kilometre, impute missing value with `mean`                |
 
 ## Explanation of choice of models for each ML task
@@ -131,37 +131,40 @@ Feature                                    | Actions                            
 ## Evaluation of models developed
 **Metrics Considered for Evaluation:**
 1. Accuracy
-    - ..
+    - Accuracy measures the overall correctness of a classification model
+    - (True Positives + True Negatives) / (True Positives + True Negatives + False Positives + False Negatives)
 2. Precision
-    - ..
+    - Precision focuses on the accuracy of positive predictions.
+    - True Positives / (True Positives + False Positives)
 3. Recall
-    - ..
+    - Recall measures the proportion of actual positives that were correctly predicted by the model
+    - True Positives / (True Positives + False Negatives)
 4. F1-Score
-    - ..
+    - F1-Score is the harmonic mean of precision and recall
+    - Provides a balanced measure between precision and recall, considering both false positives and false negatives.
+    - 2 * (Precision * Recall) / (Precision + Recall)
 
-**Gradient Boosting Classifier:**
-| Metric | Score |
-| ------ | ----- |
-|Accuracy|0.73|
-|Precision|0.7|
-|Recall|0.73|
-|F1-Score|0.71|
+### Summary of Results
+- Overall, this analysis provides insights into the effectiveness of different machine learning models for predicting ticket types based on pre-cruise survey features.
+- Among the three models, the Gradient Boosting Classifier demonstrated the highest accuracy (73%), followed by the Random Forest Classifier (70%) and Logistic Regression (62%).
+- The Gradient Boosting Classifier showed balanced performance with precision and recall both around 70%. This suggests that it effectively identified true positives while minimizing false positives.
+- The Gradient Boosting Classifier had the highest F1-Score at 71%, followed by the Random Forest Classifier at 67%, and the Logistic Regression model at 60%.
+- Based on the evalutaion metrics, the Gradient Boosting Classifier stands out as the top-performing model.
 
-**Logistic Regression:**
-| Metric | Score |
-| ------ | ----- |
-|Accuracy|0.62|
-|Precision|0.65|
-|Recall|0.62|
-|F1-Score|0.6|
+**Conclusion:**
+- Gradient Boosting Classifier is recommended for predicting ticket types.
+- Further iterative fine-tuning and feature engineering is required to improve the performance further.
 
-**Random Forest Classifier:**
-| Metric | Score |
-| ------ | ----- |
-|Accuracy|0.7|
-|Precision|0.73|
-|Recall|0.7|
-|F1-Score|0.67|
+| Metric    | <div style="text-align:center;">Gradient Boosting Classifier</div> | <div style="text-align:center;">Logistic Regression</div> | <div style="text-align:center;">Random Forest Classifier</div> |
+|-----------|------------------------------------------------------------------|--------------------------------------------------------|------------------------------------------------------------|
+| Accuracy  | <div style="text-align:center;">0.73</div>                         | <div style="text-align:center;">0.62</div>               | <div style="text-align:center;">0.7</div>                    |
+| Precision | <div style="text-align:center;">0.7</div>                          | <div style="text-align:center;">0.65</div>               | <div style="text-align:center;">0.73</div>                   |
+| Recall    | <div style="text-align:center;">0.73</div>                         | <div style="text-align:center;">0.62</div>               | <div style="text-align:center;">0.7</div>                    |
+| F1-Score  | <div style="text-align:center;">0.71</div>                         | <div style="text-align:center;">0.6</div>                | <div style="text-align:center;">0.67</div>                   |
 
 ## Other considerations for deploying the models developed
-Placeholder
+**Model Serving Medium**
+- Consider suitable platform to serve the models, which can be cloud-based platforms like AWS SageMaker or Google AI Platform, or open-source solution like FastAPI.
+
+**API Integration**
+- Develop user-friendly interface for end-users to interact with the deployed models. Ensure that it aligns with their needs and can integrate well into their exisiting systems.
