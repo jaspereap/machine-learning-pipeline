@@ -73,23 +73,30 @@ Current Parameters:
 ## Exploratory Data Analysis (EDA)
 ### Overview of key findings
 **Target Variable Distribution:**
-- The distribution of 'Ticket Type' revealed a balanced representation of Standard, Deluxe, and Luxury ticket types.
+- The distribution of 'Ticket Type' revealed a skewed representation towards `Standard` and `Luxury` ticket types.
+- `Deluxe` ticket are minority of the dataset.
+- `Age` is the most influential feature for `Ticket Type`.
+    - Older passengers tend to go for `Luxury` tickets
+    - Younger passengers tend to go for `Standard` and `Deluxe`
+
+**`Age` Distribution:**
+- Older passengers highly prefers `Cabin Comfort`, `Cleanliness` and `Cabin Service`
+- Younger passengers has low preference for `Cleanliness`
 
 **Correlation Analysis:**
-- Strong correlations were observed between specific features (e.g., 'Online Check-in', 'Port Check-in Service') and the target variable 'Ticket Type'.
+- Strong correlations were observed between features like `Cruise Distance`, `Online Check-in` and `Onboard Experience` and the target variable 'Ticket Type'.
 
 **Feature Importance:**
-- 'Age' was identified as the most influential feature for prediction, followed by 'Online Check-in' and 'Onboard Wifi Service'.
+- `Age` was identified as the most influential feature for prediction, followed by `Onboard Experience` and 'Check-in Experience'.
 
 ### Choices made in pipeline based on findings
-**Missing Data Handling:**
-- Missing values were imputed using suitable methods for each feature.
 
 **Feature Engineering:**
-- New features `Onboard Experience` and `Check-in Experience` were created to capture aggregated service ratings, providing a more comprehensive view.
+- New features `Onboard Experience` and `Check-in Experience` were created to capture aggregated service ratings
+- `Age` was also created to make `Date of Birth` usable in our analysis
 
 **Feature Selection:**
-- `Age` was identified as the most influential feature, followed by `Onboard Experience` and `Check-in Experience`
+- `Age` was identified as the most influential feature, followed by `Online Check-in`, `Onboard Experience` and `Check-in Experience`
 
 ## Summary of how features in the dataset are processed
 Feature                                    | Actions                                                                                        |
