@@ -72,9 +72,6 @@ Current Parameters:
 
 ## Exploratory Data Analysis (EDA)
 ### Overview of key findings
-**Handling Missing Values:**
-- Missing values were appropriately handled through imputation methods specific to each feature.
-
 **Target Variable Distribution:**
 - The distribution of 'Ticket Type' revealed a balanced representation of Standard, Deluxe, and Luxury ticket types.
 
@@ -93,12 +90,6 @@ Current Parameters:
 
 **Feature Selection:**
 - `Age` was identified as the most influential feature, followed by `Onboard Experience` and `Check-in Experience`
-
-**Model Selection:**
-- Random Forest, Logistic Regression, and Gradient Boosting Classifier were chosen for their adaptability and effectiveness in classification tasks.
-
-**Hyperparameter Tuning:**
-- Hyperparameters were tuned for optimal model performance, such as setting 100 estimators for improved accuracy.
 
 ## Summary of how features in the dataset are processed
 | Feature                                    | Actions                                                                                        |
@@ -124,11 +115,30 @@ Current Parameters:
 | Cruise Distance                            | Correct invalid distances, convert all to kilometre, impute missing value with `mean`                                                                                               |
 
 ## Explanation of choice of models for each ML task
-Placeholder
+**Models Used:**
+- Gradient Boosting Classifier
+- Logistic Regression
+- Random Forest Classifier
 
 ## Evaluation of models developed
-Placeholder
-Include explanation for any metrics used in evaluation
+**Metrics Considered for Evaluation:**
+1. Accuracy
+    - ..
+2. Precision
+    - ..
+3. Recall
+    - ..
+4. F1-Score
+    - ..
+
+**Gradient Boosting Classifier:**
+- ..
+
+**Logistic Regression:**
+- ..
+
+**Random Forest Classifier:**
+- ..
 
 ## Other considerations for deploying the models developed
 Placeholder
