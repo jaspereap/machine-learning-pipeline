@@ -60,7 +60,7 @@ Current Parameters:
     - Includes creating transformation and interactions of existing features.
 5. **In-Depth Data Exploration**
     - After preprocessing and feature engineering, a more detailed EDA can be performed to understand how the new features interact with the target variable.
-    - Includes using bivariate plots and feature importance classifiers to identify relevant features
+    - Includes using uni/bivariate plots, feature importance classifiers and correlation analysis to identify relevant features
 6. **Model Selection**
     - Choose a set of models suitable for the prediction problem.
     - In this case, for multi-class classification problem, Gradient Boosting, Logistic Regression and Random Forest models were shortlisted for evaluation.
