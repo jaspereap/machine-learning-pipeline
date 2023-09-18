@@ -63,12 +63,12 @@ Current Parameters:
     - Includes using bivariate plots and feature importance classifiers to identify relevant features
 6. **Model Selection**
     - Choose a set of models suitable for the prediction problem.
-    - In this case, for multi-class classification problem.
+    - In this case, for multi-class classification problem, Gradient Boosting, Logistic Regression and Random Forest models were shortlisted for evaluation.
 7. **Model Training and Evaluation**
     - Train selected models on processed and engineered dataset.
-    - Evaluate performance using metrics such as accuracy, precision, recall and F1-score and choose the best performing one.
+    - Evaluate performance of each models using metrics such as accuracy, precision, recall and F1-score and choose the best performing one.
 8. **Hyperparameter Tuning**
-    - Fine-tune the hyperparameters of the chosen model(s) to further improve performance.
+    - Fine-tune the hyperparameters of the chosen models to further improve performance.
 
 ## Exploratory Data Analysis (EDA)
 ### Overview of key findings
