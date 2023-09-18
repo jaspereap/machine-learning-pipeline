@@ -92,8 +92,9 @@ Current Parameters:
 - `Age` was identified as the most influential feature, followed by `Onboard Experience` and `Check-in Experience`
 
 ## Summary of how features in the dataset are processed
-| Feature                                    | Actions                                                                                        |
+Feature                                    | Actions                                                                                        |
 | ------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| Ticket Type                                | Drop all rows with missing value                                                               |
 | Date of Birth                              | Used with `Logging` to calculate `Age`, then impute missing values with `mode`                 |
 | Source of Traffic                          | Encode-> Direct-Company Website=0, Email Marketing=1, Indirect-Search Engine=2, Social Media=3 |
 | Onboard Wifi Service                       | Encode-> Numeric ratings, impute missing value with `mode`                                     |
@@ -112,7 +113,7 @@ Current Parameters:
 | Port Check-in Service                      | Impute missing value with `mode`                                                               |
 | Logging                                    | Used with `Age` to calculate `Age`                                                             |
 | Cruise Name                                | Corrected spelling to either `Blastoise` or `Lapras`, impute missing value with `mode`         |
-| Cruise Distance                            | Correct invalid distances, convert all to kilometre, impute missing value with `mean`                                                                                               |
+| Cruise Distance                            | Correct invalid distances, convert all to kilometre, impute missing value with `mean`                |
 
 ## Explanation of choice of models for each ML task
 **Models Used:**
