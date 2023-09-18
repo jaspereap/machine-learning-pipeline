@@ -67,6 +67,7 @@ Current Parameters:
 7. **Model Training and Evaluation**
     - Train selected models on processed and engineered dataset.
     - Evaluate performance of each models using metrics such as accuracy, precision, recall and F1-score and choose the best performing one.
+    - In the script, scores for each model is printed, together with the features considered.
 8. **Hyperparameter Tuning**
     - Fine-tune the hyperparameters of the chosen models to further improve performance.
 
