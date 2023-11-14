@@ -1,8 +1,7 @@
-# AIAP Batch 15 Technical Assessment
 ## Personal Details
-| Full Name            | Email address       |
+| Name            | Email address       |
 | ---------------------| ------------------- |
-| Eap Wei Hang, Jasper | jaspereap@gmail.com |
+| Jasper | jaspereap@gmail.com |
 
 ## Overview of submitted folder
 ```
